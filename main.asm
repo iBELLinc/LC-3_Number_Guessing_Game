@@ -51,8 +51,8 @@ GENERATOR		; PLACEHOLDER
 
 ; #########################################################################
 
-LEA R0, PROMPT_FIRST_GUESS
-PUTS
+			LEA R0, PROMPT_FIRST_GUESS
+			PUTS
 
 INPUT_LOOP		GETC
 			STR R0, DIGITS, #0			; get 10s place
@@ -73,16 +73,16 @@ INPUT_LOOP		GETC
 
 								; ~Compare value with R1~
 
-NOT R0, R0
-ADD R0, R0, #1 		; Negative version of user input
-ADD R0, R1, R0 		; R0 - R1 = R0
+			NOT R0, R0
+			ADD R0, R0, #1 		; Negative version of user input
+			ADD R0, R1, R0 		; R0 - R1 = R0
 
 ; --------------------------------------------------------------------------------------------------------------------
 
 				; IF statements
-				BRz CORRECT
-				BRn TOO_HIGH
-				BRp TOO_LOW
+			BRz CORRECT
+			BRn TOO_HIGH
+			BRp TOO_LOW
 
 ; #########################################################################
 								; ~Branches~
