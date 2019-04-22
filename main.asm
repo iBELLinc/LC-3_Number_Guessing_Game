@@ -37,16 +37,15 @@
 
 ; #########################################################################
 
-PLAY_AGAIN 		LEA R0, Y		; load ascii value for ‘y’ into R0
-			PUTC			; print ‘y’ to screen
-			JSR LINEBREAK
+PLAY_AGAIN 		JSR LINEBREAK
 			ADD R2, R2, #1		; increment random generator counter
 
 ; #########################################################################
 
-GENERATOR		; PLACEHOLDER
-			LD R7, RANDNUM
-			JSRR R7			; GENERATOR Function Call
+GENERATOR		ADD R1, R1, #10			; Testing Value
+			; PLACEHOLDER
+			;LD R7, RANDNUM
+			;JSRR R7			; GENERATOR Function Call
 			; PLACEHOLDER
 
 ; #########################################################################
@@ -55,7 +54,7 @@ GENERATOR		; PLACEHOLDER
 			LEA R0, PROMPT_FIRST_GUESS
 			PUTS
 
-INPUT_LOOP		LD R3, TO_BINARY
+INPUT_LOOP		LD R4, TO_BINARY
 			GETC
 			LD R7, TEST_INPUT
 			JSRR R7
@@ -64,7 +63,7 @@ INPUT_LOOP		LD R3, TO_BINARY
 			
 			OUT				; print 10s digit
 			
-			ADD R0, R0, R3
+			ADD R0, R0, R4
 			STR R0, R5, #0			; save 10s digit
 			GETC
 			LD R7, TEST_INPUT
@@ -74,7 +73,7 @@ INPUT_LOOP		LD R3, TO_BINARY
 			
 			OUT				; print 1s digit
 			
-			ADD R0, R0, R3
+			ADD R0, R0, R4
 			STR R0, R5, #1			; save 1s digit
 			LD R7, LINEBREAK
 			JSRR R7
@@ -87,7 +86,6 @@ INPUT_LOOP		LD R3, TO_BINARY
 			
 			;LD R3, TO_BINARY
 			;ADD R0, R0, R3			; convert R0 to binary
-			AND R3, R3, #0			; reset R3 for next iteration
 
 
 ; --------------------------------------------------------------------------------------------------------------------
@@ -165,11 +163,12 @@ DONE 		NOT R6, R6
 
 ; #########################################################################
 
-CALC_TENS		LDR R4, R5, #0			; load first digit into R4 as iterator
+CALC_TENS		AND R3, R3, #0			; prep sum register
+			LDR R4, R5, #0			; load first digit into R4 as iterator
 			;LD R3, TO_BINARY
 			;ADD R4, R4, R3			; Convert R4 to ascii
 			BRz RETURN
-			AND R3, R3, #0			; prep sum register
+			
 PLUS_TEN		ADD R3, R3, #10
 			ADD R4, R4, #-1			; decrement iterator
 			BRnz RETURN
