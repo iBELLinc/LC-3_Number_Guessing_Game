@@ -57,18 +57,27 @@ GENERATOR		; PLACEHOLDER
 
 INPUT_LOOP		LD R3, TO_BINARY
 			GETC
-			LEA R7, TEST_INPUT
+			LD R7, TEST_INPUT
 			JSRR R7
-			OUT
+			ADD R6, R6, #0
+			BRn INPUT_LOOP
+			
+			OUT				; print 10s digit
+			
 			ADD R0, R0, R3
-			STR R0, R5, #0			; get 10s place
+			STR R0, R5, #0			; save 10s digit
 			GETC
-			LEA R7, TEST_INPUT
+			LD R7, TEST_INPUT
 			JSRR R7
-			OUT
+			ADD R6, R6, #0
+			BRn INPUT_LOOP
+			
+			OUT				; print 1s digit
+			
 			ADD R0, R0, R3
-			STR R0, R5, #1			; get 1s place
-			JSR LINEBREAK
+			STR R0, R5, #1			; save 1s digit
+			LD R7, LINEBREAK
+			JSRR R7
 			JSR CALC_TENS			; calculate tens place value
 
 			LDR R0, R5, #1			; reload units into R0
@@ -113,14 +122,18 @@ TOO_LOW			LEA R0, PROMPT_TOO_LOW
 
 CORRECT 		LEA R0, PROMPT_CORRECT				; congratulate user
 			PUTS
-			JSR LINEBREAK
-			JSR LINEBREAK
+			
+			LD R7, LINEBREAK
+			JSRR R7
+			LD R7, LINEBREAK
+			JSRR R7
 
 			LEA R0, PROMPT_PLAY_AGAIN			; ask user to play again
 			PUTS
 			BRnzp FIRST_INPUT				; jump to user input LOOP
 
-INPUT_ERROR		JSR LINEBREAK
+INPUT_ERROR		LD R7, LINEBREAK
+			JSRR R7
 			LEA R0, PROMPT_Y_OR_N
 			PUTS
 FIRST_INPUT		GETC						; get user input
@@ -145,20 +158,10 @@ DONE 		NOT R6, R6
 		ADD R6, R6, #1
 		ADD R0, R0, R6 				; put R0 back to ascii value
 		OUT 					; print ‘n’ to screen
-		JSR LINEBREAK
+		LD R7, LINEBREAK
+		JSRR R7
 		LEA R0, PROMPT_STOP
 		PUTS 					; “Thanks for playing!”
-
-; #########################################################################
-
-LINEBREAK		ST R7, RETURN_FROM_BREAK
-			AND R0, R0, #0		; zero R5
-			ADD R0, R0, #10		; set R5 to newline char
-			OUT			; print to screen
-			LD R7, RETURN_FROM_BREAK
-			JMP R7
-			HALT			; just in case something goes wrong
-RETURN_FROM_BREAK	.BLKW #1
 
 ; #########################################################################
 
@@ -179,6 +182,7 @@ Y				.FILL #121
 N 				.FILL #-110
 TO_BINARY			.FILL #-48
 RANDNUM				.FILL x0000							; Generator Address Location
+LINEBREAK			.FILL x3200
 TEST_INPUT			.FILL x3150
 
 DIGITS				.BLKW #2							; Array for 2 digit number input
