@@ -180,7 +180,7 @@ RETURN			RET
 Y				.FILL #121
 N 				.FILL #-110
 TO_BINARY			.FILL #-48
-RANDNUM				.FILL x0000							; Generator Address Location
+RANDNUM				.FILL x4000							; Generator Address Location
 LINEBREAK			.FILL x3200
 TEST_INPUT			.FILL x3150
 
