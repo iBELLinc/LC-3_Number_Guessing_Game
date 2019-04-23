@@ -1,0 +1,14 @@
+// Symbol table
+// Symbol Name       Page Address
+// ----------------  ------------
+// AGAIN             4008
+// CheckPos          400D
+// MakePos           4010
+// Pos               4011
+// MOD100            4012
+// NegateNum         401A
+// Num1              401D
+// Num2              401E
+// Num3              401F
+// Num4              4020
+// SaveR7            4021

@@ -1,0 +1,7 @@
+// Symbol table
+// Symbol Name       Page Address
+// ----------------  ------------
+// RET_TO_MAIN       350C
+// LINEBREAK         350D
+// WELCOME           350E
+// PROG_BY           3537
