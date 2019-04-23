@@ -191,7 +191,7 @@ PROMPT_CORRECT 			.STRINGZ "Congratulations! You found the number!"
 
 PROMPT_PLAY_AGAIN 		.STRINGZ "Would you like to play again? (y or n): "
 
-PROMPT_Y_OR_N			.STRINGZ "Invalid input! Please enter either ‘y’ or ‘n’: "
+PROMPT_Y_OR_N			.STRINGZ "Invalid input! Please enter either 'y' or 'n': "
 
 PROMPT_STOP 			.STRINGZ "Thanks for playing!"
 
