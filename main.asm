@@ -1,15 +1,15 @@
 ; 				#########################################
-;				#	Number Guessing Game		#
-; 				#	    A combined work by       	#
+;				#	  Number Guessing Game		#
+; 				#	   A combined work by       	#
 ; 				#	 Cindy Cherry & Ian Bell	#
 ; 				#########################################
 ;
 ;		#################################################################
 ;		#			Registers: 				#
 ;		#    =================================================		#
-; 		#   R0 = I/O			||	R4 = Tens Digit Sum	#
+; 		#   R0 = I/O			||	R4 = 			#
 ; 		#   R1 = Random Number		||	R5 = DIGITS Pntr	#
-; 		#   R2 = Counter		||	R6 = #-110		#
+; 		#   R2  			||	R6 = 			#
 ; 		#   R3				||	R7 = JUMP Addresses	#
 ; 		#################################################################
 ; 
@@ -33,17 +33,12 @@
 
 .ORIG x3000
 
-			BRnzp GENERATOR 		; skip PLAY_AGIN first time through
+			LD R7, WELCOME
+			JSRR R7				; print welcome message
 
 ; #########################################################################
 
-PLAY_AGAIN 		LD R7, LINEBREAK
-			JSRR R7
-			ADD R2, R2, #1		; increment random generator counter
-
-; #########################################################################
-
-GENERATOR		LD R1, RANDOM
+PLAY_AGAIN		LD R1, RANDOM
 			LD R7, RANDNUM
 			JSRR R7			; GENERATOR Function Call
 			ST R1, RANDOM
@@ -155,7 +150,9 @@ DONE 		NOT R6, R6
 		LD R7, LINEBREAK
 		JSRR R7
 		LEA R0, PROMPT_STOP
-		PUTS 					; “Thanks for playing!”
+		PUTS 					; "Thanks for playing!"
+		
+		HALT
 
 ; #########################################################################
 
@@ -176,6 +173,7 @@ RETURN			RET
 Y				.FILL #121
 N 				.FILL #-110
 TO_BINARY			.FILL #-48
+WELCOME				.FILL x3500
 RANDNUM				.FILL x4000							; Generator Address Location
 LINEBREAK			.FILL x3200
 TEST_INPUT			.FILL x3150
