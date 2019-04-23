@@ -5,7 +5,7 @@
  
 ### Purpose:
 This project is a game in which the computer randomly generates a number based on a seed and the user tries to guess the number.
-
+```
 =================================================================
 |                         			Registers: 				                    |
 |    =================================================		        |
@@ -14,50 +14,50 @@ This project is a game in which the computer randomly generates a number based o
 |              R2 =			             ||	R6 = 			                  |
 |              R3	=		              ||	R7 = JUMP Addresses	      |
 #################################################################
-
+```
 ### Labels:
-##### main.asm:
-###### PLAY_AGAIN 
+###### main.asm:
+##### PLAY_AGAIN 
 Loops the player back to the begining of the program so they can play again
 
-###### INPUT_LOOP
+##### INPUT_LOOP
 Reset point for program to loop back to in the event that an input error occurs
 
-###### TOO_HIGH
+##### TOO_HIGH
 Branch to run when the number entered by user is too high
-###### TOO_LOW
+##### TOO_LOW
 Branch to run when the number entered by user is too low
 
-###### CORRECT
+##### CORRECT
 Branch to run when the user correctly guesses the random number
-###### INPUT_ERROR
+##### INPUT_ERROR
 Runs when the user enters a character that is not within 0-9
-###### FIRST_INPUT
+##### FIRST_INPUT
 
 
-###### DONE
+##### DONE
 
-###### CALC_TENS
-###### PLUS_TEN
-###### RETURN
+##### CALC_TENS
+##### PLUS_TEN
+##### RETURN
 
-##### welcome.asm:
+###### welcome.asm:
 N/A
 
-##### random.asm:
-###### AGAIN
-###### CheckPos
-###### MakePos
-###### Pos
-###### MOD100
-###### NegateNum
+###### random.asm:
+##### AGAIN
+##### CheckPos
+##### MakePos
+##### Pos
+##### MOD100
+##### NegateNum
 
-##### test_input.asm:
-###### TEST_INPUT
-###### GOOD_INPUT
-###### BAD_INPUT
+###### test_input.asm:
+##### TEST_INPUT
+##### GOOD_INPUT
+##### BAD_INPUT
 
-##### linebreak.asm:
+###### linebreak.asm:
 N/A
 
 ### HOW TO PLAY:
