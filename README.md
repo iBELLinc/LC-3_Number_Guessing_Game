@@ -17,15 +17,23 @@ Purpose: This project is a game in which the computer randomly generates a numbe
 Labels:
 
 # main.asm:
-PLAY_AGAIN
+PLAY_AGAIN 
+Loops the player back to the begining of the program so they can play again
+
 INPUT_LOOP
+Reset point for program to loop back to in the event that an input error occurs
 
 TOO_HIGH
+Branch to run when the number entered by user is too high
 TOO_LOW
+Branch to run when the number entered by user is too low
 
 CORRECT
+Branch to run when the user correctly guesses the random number
 INPUT_ERROR
+Runs when the user enters a character that is not within 0-9
 FIRST_INPUT
+
 
 DONE
 
