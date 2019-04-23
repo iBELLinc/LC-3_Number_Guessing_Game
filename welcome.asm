@@ -4,6 +4,8 @@ ST R7, RET_TO_MAIN
 
 LEA R0, WELCOME
 PUTS
+LD R7, LINEBREAK
+JSRR R7
 LEA R0, PROG_BY
 PUTS
 
@@ -12,7 +14,9 @@ RET
 
 HALT
 
-RETURN_TO_MAIN .BLKW #1
+RET_TO_MAIN  .BLKW #1
+
+LINEBREAK     .FILL x3200
 
 WELCOME				.STRINGZ "WELCOME! This is a number guessing game!"
 PROG_BY				.STRINGZ "By Cindy Cherry & Ian Bell"
