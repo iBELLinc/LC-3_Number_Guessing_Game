@@ -37,18 +37,16 @@
 
 ; #########################################################################
 
-PLAY_AGAIN 		JSR LINEBREAK
+PLAY_AGAIN 		LD R7, LINEBREAK
+			JSRR R7
 			ADD R2, R2, #1		; increment random generator counter
 
 ; #########################################################################
 
-GENERATOR		;ADD R1, R1, #10			; Testing Value
-			; PLACEHOLDER
-			LD R1, RANDOM
+GENERATOR		LD R1, RANDOM
 			LD R7, RANDNUM
 			JSRR R7			; GENERATOR Function Call
 			ST R1, RANDOM
-			; PLACEHOLDER
 
 ; #########################################################################
 
@@ -85,10 +83,6 @@ INPUT_LOOP		LD R4, TO_BINARY
 			ADD R0, R0, R3			; add units + tens place = R0
 
 							; ~R0 now holds dec value in ascii~
-			
-			;LD R3, TO_BINARY
-			;ADD R0, R0, R3			; convert R0 to binary
-
 
 ; --------------------------------------------------------------------------------------------------------------------
 
