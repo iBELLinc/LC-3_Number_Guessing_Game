@@ -1,0 +1,20 @@
+.ORIG x3500
+
+ST R7, RET_TO_MAIN
+
+LEA R0, WELCOME
+PUTS
+LEA R0, PROG_BY
+PUTS
+
+LD R7, RET_TO_MAIN
+RET
+
+HALT
+
+RETURN_TO_MAIN .BLKW #1
+
+WELCOME				.STRINGZ "WELCOME! This is a number guessing game!"
+PROG_BY				.STRINGZ "By Cindy Cherry & Ian Bell"
+
+.END
