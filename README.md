@@ -72,25 +72,28 @@ N/A
 <br><br><br>
 ### HOW TO PLAY:
 - User recieves prompt for input of a two digit number
-- User must enter a 2 digit (ex. 00) number
-- If user fails to enter two numbers, either first of second digit, they will be prompted to try inputing again from the first digit
-- If input is correct the program will check the user's guess verses the actual number
-- If correct the program will congratulate the user
-- If incorrect the program will prompt the user to guess again
-- When the answer is correct the program will ask the user if they want to play again
-- Choosing 'y' will loop the game back to the begining with the program picking a new random number
-- Choosing 'n' will end the program, thanking the user for playing
-- If the user enters anything other than 'y' or 'n', the program will loop back inform the user that their input was invalid and prompt the user to enter either 'y' or 'n'
+  - User must enter a 2 digit (ex. 00) number
+    - If user fails to enter two numbers, either first of second digit, they will be prompted to try inputing again from the first digit
+    - If input is correct the program will check the user's guess verses the actual number
+      - If incorrect the program will prompt the user to guess again
+      - If guess is correct the program will congratulate the user
+        - Program will ask the user if they want to play again
+          - Choosing 'y' will loop back to the begining with the program picking a new random number for the user to guess
+          - Choosing 'n' will end the program, thanking the user for playing
+          - If the user enters anything other than 'y' or 'n', the program will loop back inform the user that their input was invalid and prompt the user to enter either 'y' or 'n'
 <br><br><br>
 ### TESTS:
 ###### Test 1
 Prior to adding the number generator code a single line stating `ADD R1, R1, #10` was used to initialize R1 (the random number) to the decimal value 10 to make sure all the code in the main program as well as the subroutines for testing input were all functioning correctly.
 ###### Test 2
+The random number generator was tested to make sure it was generating new random numbers in a different random sequence each time it was run.
+###### Test 3
 Added the random number generator code and tested it multiple times on two different machines to make sure:
 1. The numbers at the start of each individual game were random
 2. The program was accurately identifying user input errors and prompting the user to try again
 3. The program was able to properly loop and generate a new random number for the second iteration of the game
 4. The program was accurately calculating whether the user's input was equivalent to the random number generated
+5. The prompts and user input displayed the screen in a clear and presentable way with clear spacing
 <br><br><br>
 ### Additional Info:
 Project written in LC-3 Assembly Language and tested in the LC-3 simulator available for free here: https://wchargin.github.io/lc3web/
