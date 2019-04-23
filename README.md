@@ -1,66 +1,66 @@
 # LC-3_Number_Guessing_Game
-By Cindy Cherry &amp; Ian Bell
+## By Cindy Cherry &amp; Ian Bell
  
-This is the final project for CS2810 Computer Organization and Architecture class at Utah Valley University.
+*This is the final project for CS2810 Computer Organization and Architecture class at Utah Valley University.*
  
-Purpose: This project is a game in which the computer randomly generates a number based on a seed and the user tries to guess the number.
+### Purpose:
+This project is a game in which the computer randomly generates a number based on a seed and the user tries to guess the number.
 
+=================================================================
+|                         			Registers: 				                    |
+|    =================================================		        |
+|              R0 = I/O			         ||	R4 = 			                  |
+|              R1 = Random Number		||	R5 = DIGITS Pntr	         |
+|              R2 =			             ||	R6 = 			                  |
+|              R3	=		              ||	R7 = JUMP Addresses	      |
 #################################################################
-#                         			Registers: 				                    #
-#    =================================================		        #
-#              R0 = I/O			         ||	R4 = 			                  #
-#              R1 = Random Number		||	R5 = DIGITS Pntr	         #
-#              R2 =			             ||	R6 = 			                  #
-#              R3	=		              ||	R7 = JUMP Addresses	      #
-#################################################################
 
-Labels:
-
-# main.asm:
-PLAY_AGAIN 
+### Labels:
+##### main.asm:
+###### PLAY_AGAIN 
 Loops the player back to the begining of the program so they can play again
 
-INPUT_LOOP
+###### INPUT_LOOP
 Reset point for program to loop back to in the event that an input error occurs
 
-TOO_HIGH
+###### TOO_HIGH
 Branch to run when the number entered by user is too high
-TOO_LOW
+###### TOO_LOW
 Branch to run when the number entered by user is too low
 
-CORRECT
+###### CORRECT
 Branch to run when the user correctly guesses the random number
-INPUT_ERROR
+###### INPUT_ERROR
 Runs when the user enters a character that is not within 0-9
-FIRST_INPUT
+###### FIRST_INPUT
 
 
-DONE
+###### DONE
 
-CALC_TENS
-PLUS_TEN
-RETURN
+###### CALC_TENS
+###### PLUS_TEN
+###### RETURN
 
-# welcome.asm:
+##### welcome.asm:
 N/A
 
-# random.asm:
-AGAIN
-CheckPos
-MakePos
-Pos
-MOD100
-NegateNum
+##### random.asm:
+###### AGAIN
+###### CheckPos
+###### MakePos
+###### Pos
+###### MOD100
+###### NegateNum
 
-# test_input.asm:
-TEST_INPUT
-GOOD_INPUT
-BAD_INPUT
+##### test_input.asm:
+###### TEST_INPUT
+###### GOOD_INPUT
+###### BAD_INPUT
 
-# linebreak.asm:
+##### linebreak.asm:
 N/A
 
-HOW TO PLAY:
+### HOW TO PLAY:
 - User recieves prompt for input of a two digit number
 - User must enter a 2 digit (ex. 00) number
 - If user fails to enter two numbers, either first of second digit, they will be prompted to try inputing again from the first digit
@@ -72,7 +72,8 @@ HOW TO PLAY:
 - Choosing 'n' will end the program, thanking the user for playing
 - If the user enters anything other than 'y' or 'n', the program will loop back inform the user that their input was invalid and prompt the user to enter either 'y' or 'n'
 
-TESTS:
+### TESTS:
 
 
-Other Info: Project written in LC-3 Assembly Language and tested in the LC-3 simulator here: https://wchargin.github.io/lc3web/
+### Other Info:
+Project written in LC-3 Assembly Language and tested in the LC-3 simulator here: https://wchargin.github.io/lc3web/
