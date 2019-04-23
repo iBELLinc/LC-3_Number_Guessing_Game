@@ -42,10 +42,12 @@ PLAY_AGAIN 		JSR LINEBREAK
 
 ; #########################################################################
 
-GENERATOR		ADD R1, R1, #10			; Testing Value
+GENERATOR		;ADD R1, R1, #10			; Testing Value
 			; PLACEHOLDER
-			;LD R7, RANDNUM
-			;JSRR R7			; GENERATOR Function Call
+			LD R1, RANDOM
+			LD R7, RANDNUM
+			JSRR R7			; GENERATOR Function Call
+			ST R1, RANDOM
 			; PLACEHOLDER
 
 ; #########################################################################
@@ -184,6 +186,7 @@ RANDNUM				.FILL x4000							; Generator Address Location
 LINEBREAK			.FILL x3200
 TEST_INPUT			.FILL x3150
 
+RANDOM				.BLKW #1
 DIGITS				.BLKW #2							; Array for 2 digit number input
 
 PROMPT_FIRST_GUESS 		.STRINGZ "Guess a two digit number (01-99): "
